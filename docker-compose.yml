@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  webapp:
+    build: ./webapp
+    volumes:
+      - ./webapp/src:/var/www/html
+    ports:
+      - 4000:80
+
+  dbserver:
+    image: mysql
+    restart: always
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: 7odjw34fh8c2e
+      MYSQL_DATABASE: skymake_container
+    volumes:
+      - ./sqldump:/docker-entrypoint-initdb.d
+    ports:
+      - 4500:3306
+
+  dbadmin:
+    image: phpmyadmin:5-apache
+    restart: always
+    environment:
+      PMA_HOST: dbserver
+    ports:
+      - 4600:80
