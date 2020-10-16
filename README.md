@@ -33,6 +33,14 @@ docker-compose up
 # Don't forget to CHANGE the MYSQL Password inside docker-compose and ./webapp/src/SkyMakeDatabaseConnector/SkyMakeDBconfig.php
 ```
 
+### Known Bugs/Unstable Parts/Things that will be fixed in the future
+
+- SkyMake Web Updater is not very stable.
+- This is not an optimal size for the container. 
+- Live Class Server will be added.
+- Package is not published to Docker Hub, it is composed manually.
+- src folder is not contained inside the image. (This is good for development purposes but makes it hard to move the container to another directory)
+
 ### How do I update?
 
 ```shell
