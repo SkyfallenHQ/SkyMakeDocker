@@ -1,6 +1,5 @@
 FROM php:7.4-apache
 EXPOSE 80
-COPY ./src /var/www/html
 RUN docker-php-ext-install mysqli
 RUN docker-php-ext-enable mysqli
 RUN apt-get update
@@ -12,3 +11,6 @@ RUN touch /usr/local/etc/php/conf.d/skymake.ini
 RUN echo "output_buffering = 16384" >> /usr/local/etc/php/conf.d/skymake.ini
 RUN echo "display_errors = off" >> /usr/local/etc/php/conf.d/skymake.ini
 RUN echo "error_reporting = E_ERROR" >> /usr/local/etc/php/conf.d/skymake.ini
+RUN apt-get install git -y
+RUN cd /var/www/html
+RUN git clone https://github.com/yigitkeremoktay/SkyMake .

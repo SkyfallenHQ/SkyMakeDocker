@@ -1,5 +1,0 @@
-Deny from all
-<Files "error.html">
-  Allow from all
-</Files>
-ErrorDocument 403 /nps/error.html
